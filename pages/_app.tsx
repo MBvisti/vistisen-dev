@@ -4,11 +4,14 @@ import { Layout } from "../screens/layout";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from 'styled-components';
 
+// TODO: try out: proxima-nova, sans-serif
+
 export const GlobalStyle = createGlobalStyle`  
   html {
     box-sizing: border-box;
-    font-size: 10px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 10px;    
+    font-family: 'Montserrat', sans-serif;
+    // font-family: proxima-nova, sans-serif;
   }
   
   *, *:before, *:after {
@@ -32,11 +35,12 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   h1, h2, h3, h4 {
-    margin: 0;
+    margin: 0;    
   }
   
   p {
-    margin: 0;    
+    margin: 0;
+    font-family: 'Roboto', sans-serif;    
   }
   
   input:focus {
