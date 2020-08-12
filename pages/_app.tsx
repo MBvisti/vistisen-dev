@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 10px;    
     font-family: 'Montserrat', sans-serif;
-    // font-family: proxima-nova, sans-serif;
   }
   
   *, *:before, *:after {
