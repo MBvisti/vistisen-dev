@@ -47,15 +47,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const theme = {
-    bg: "#F5F5F5",
-    darkColor: "#BFB5B5",
-    lightColor: "#D7D1D1"
+const darkTheme = {
+    bg: "#0A0C0D",
+    primary: "#F2F2F2",
+    secondary: "#8C8C8C",
+    accentOne: "#585959",
+    accentTwo: "#252626",
 }
 
 function App({ Component}: AppProps) {
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={darkTheme}>
             <GlobalStyle />
             <Layout>
                 <Component />
