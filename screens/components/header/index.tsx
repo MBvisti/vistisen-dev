@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// import Link from "next/link";
-import {ThreeBars} from "@styled-icons/octicons/ThreeBars/ThreeBars";
+import {ThreeBars} from "@styled-icons/octicons/ThreeBars";
 
 interface StyleProps {
     readonly fontWeight: number
