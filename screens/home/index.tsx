@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import styled from 'styled-components'
 import {Docker, ReactLogo} from "@styled-icons/fa-brands";
 import {Javascript, Postgresql, Typescript} from "@styled-icons/simple-icons";
+import Link from "next/link";
 
 const IntroductionContainer = styled.div`
     display: flex;
@@ -61,8 +62,11 @@ const Button = styled.button`
     border: 1px solid ${props => props.theme.secondary};
     border-radius: 0.4rem;
     font-family: 'Roboto', sans-serif;
-    color: ${props => props.theme.primary};
     cursor: pointer;     
+    
+    a {
+        color: ${props => props.theme.primary};
+    }
 `;
 
 export default function Home() {
@@ -81,7 +85,9 @@ export default function Home() {
                     <Postgresql />
                     <Docker />
                 </StackIcons>
-                <Button>Say hello</Button>
+                <Button>
+                    <Link href="/contact">Say hello</Link>
+                </Button>
             </IntroductionContainer>
         </Fragment>
     )
