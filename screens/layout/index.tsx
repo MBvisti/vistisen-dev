@@ -1,6 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
 import Meta from "../components/meta/";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 const Container = styled.div`
     display: grid;
@@ -9,9 +11,10 @@ const Container = styled.div`
     max-height: 100vh;
     height: 100vh;    
     background-color: ${props => props.theme.bg};
+    padding: 2.5rem;
     
     grid-template-columns:  1fr;
-    grid-template-rows: 10% 1fr 10%;
+    grid-template-rows: 3rem 1fr 3rem;
           
     @media (min-width: 640px) {
 
@@ -33,8 +36,10 @@ const Container = styled.div`
 export const Layout = (props: { children: React.ReactNode; }) => {
     return (
         <Container>
+            <Header />
             <Meta />
             {props.children}
+            <Footer />
         </Container>
     )
 };
