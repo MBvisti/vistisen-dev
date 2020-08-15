@@ -16,17 +16,17 @@ const Container = styled.div`
 `;
 
 const ContactHeader = styled.div`
+    flex: 0 1 20%;
     display: flex;
     flex-direction: column;
-    height: 10rem;
-    justify-content: space-around;
-    margin-top: 2.5rem;
-    margin-bottom: 2rem;      
+    justify-content: flex-end;
+    margin-bottom: 2rem;
     
     h1 {
         color: ${props => props.theme.primary};
         color: white;
         font-size: 2.1rem;
+        margin-bottom: 1rem;
     }
     
     p {
@@ -44,6 +44,7 @@ const FormContainer = styled.form`
     flex-direction: column;
     flex: 1;
     justify-content: space-between;     
+    margin-bottom: 2rem;
 `;
 
 const InputElement = styled.input`
@@ -55,14 +56,14 @@ const InputElement = styled.input`
     font-family: 'Montserrat',sans-serif;
     
     ::placeholder {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.secondary};
         font-size: 1.4rem;
         opacity: 0.8;
     }       
 `;
 
 const TextArea = styled.textarea`
-    flex: 0 1 13rem;
+    flex: 0 1 calc(100% - 65%);
     border: none;
     background: ${props => props.theme.accentOne};
     height: 4.5rem;
@@ -70,22 +71,22 @@ const TextArea = styled.textarea`
     padding-left: 1rem;
     padding-top: 1rem;
     font-family: 'Montserrat',sans-serif;
+    color: ${props => props.theme.primary};
     
     ::placeholder {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.secondary};
         font-size: 1.4rem;
         opacity: 0.8;        
     }     
     
-    @media (min-height: 70rem) {
-        flex: 0 1 20rem;
+    @media (min-height: 800px) {
+        flex: 0 1 calc(100% - 55%);
     }  
 `;
 
 const Button = styled.button`
     width: 8rem;
     align-self: flex-end;
-    margin-bottom: 2rem;
     height: 3.5rem;
     background: ${props => props.theme.bg};
     border: 1px solid ${props => props.theme.secondary};
