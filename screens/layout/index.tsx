@@ -12,7 +12,7 @@ const Container = styled.div`
     height: 100vh;    
     background-color: ${props => props.theme.bg};
     padding: 2.5rem;
-    overflow: scroll;
+    overflow: hidden;
     
     grid-template-columns:  1fr;
     grid-template-rows: 3rem 1fr 3rem;
