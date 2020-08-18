@@ -44,6 +44,7 @@ const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-height: 15rem;
     justify-content: space-between;     
     margin-bottom: 2rem;
 `;
