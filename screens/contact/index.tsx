@@ -44,7 +44,6 @@ const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     flex: 1;
-    // min-height: 10rem;
     justify-content: space-between;     
     margin-bottom: 2rem;
 `;
@@ -66,6 +65,7 @@ const InputElement = styled.input`
 
 const TextArea = styled.textarea`
     flex: 0 1 calc(100% - 65%);
+    min-height: 4rem;
     border: none;
     background: ${props => props.theme.accentOne};
     height: 4.5rem;
