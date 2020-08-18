@@ -4,8 +4,7 @@ import styled from 'styled-components';
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 60rem;
-    overflow: scroll;
+    min-height: 55rem;
             
     h1 {
         color: ${props => props.theme.primary};
@@ -18,7 +17,7 @@ const Container = styled.div`
 `;
 
 const ContactHeader = styled.div`
-    flex: 0 1 20%;
+    flex: 0 1 15%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -45,7 +44,7 @@ const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     flex: 1;
-    min-height: 10rem;
+    // min-height: 10rem;
     justify-content: space-between;     
     margin-bottom: 2rem;
 `;

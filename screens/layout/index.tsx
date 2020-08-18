@@ -7,12 +7,12 @@ import Footer from "../components/footer";
 const Container = styled.div`
     display: grid;
     max-width: 100vw;
-    width: 100vw;
+    min-width: 100vw;
     max-height: 100vh;
-    height: 100vh;    
+    min-height: 100vh;    
     background-color: ${props => props.theme.bg};
     padding: 2.5rem;
-    overflow: hidden;
+    overflow: scroll;
     
     grid-template-columns:  1fr;
     grid-template-rows: 3rem 1fr 3rem;
