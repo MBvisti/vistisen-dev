@@ -124,9 +124,6 @@ export const Work = () => {
                     </ShortDescContainer>
                 </Experience>
                 <Experience>
-                    <ImageContainer>
-                        <img src="https://f0.pngfuel.com/png/497/515/facebook-scalable-graphics-icon-facebook-logo-facebook-logo-png-clip-art.png" alt="facebook logo" />
-                    </ImageContainer>
                     <ShortDescContainer>
                         <TitleSmall marginTop={0}>
                             Easy Skat ApS
