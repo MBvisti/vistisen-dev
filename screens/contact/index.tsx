@@ -1,15 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import {TitleMedium} from "../components/headings";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 55rem;
-            
-    h1 {
-        color: ${props => props.theme.primary};
-        color: white;
-    }
+    min-height: 55rem;            
     
     p {
         color: ${props => props.theme.primary};
@@ -103,9 +99,9 @@ export const Contact = () => {
     return (
         <Container>
             <ContactHeader>
-                <h1>
+                <TitleMedium marginTop={30}>
                     Mail me
-                </h1>
+                </TitleMedium>
                 <p>
                     Do you want to work with me, or do you have any questions? Fill out the form and I will get back to you as soon as possble.
                 </p>

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import {Docker, ReactLogo} from "@styled-icons/fa-brands";
 import {Javascript, Postgresql, Typescript} from "@styled-icons/simple-icons";
@@ -69,9 +69,8 @@ const Button = styled.button`
     }
 `;
 
-export default function Home() {
+export const Home = () => {
     return (
-        <Fragment>
             <IntroductionContainer>
                 <Introduction>
                     <HeaderTwo>Hi,</HeaderTwo>
@@ -89,6 +88,5 @@ export default function Home() {
                     <Link href="/contact">Say hello</Link>
                 </Button>
             </IntroductionContainer>
-        </Fragment>
     )
 }
