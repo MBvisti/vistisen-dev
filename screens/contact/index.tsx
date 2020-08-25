@@ -38,6 +38,7 @@ const InputElement = styled.input`
     padding-left: 1rem;
     font-family: 'Montserrat',sans-serif;
     margin-bottom: 2rem;
+    color: ${props => props.theme.primary};
     
     ::placeholder {
         color: ${props => props.theme.secondary};

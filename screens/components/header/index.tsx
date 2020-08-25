@@ -75,6 +75,7 @@ const NavModal = styled.div`
     top: 0;
     background: ${props => props.theme.primary};
     padding: 2.5rem;
+    z-index: 500;
     
     svg {
         color: ${ props => props.theme.accentTwo};
