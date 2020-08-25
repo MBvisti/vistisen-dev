@@ -6,6 +6,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    padding-top: 5rem;    
     
     h2 {
         margin-bottom: 0.7rem;
@@ -78,7 +79,7 @@ export const Description = styled.div`
 export const Work = () => {
     return (
         <Container>
-            <TitleMedium marginTop={30}>
+            <TitleMedium>
                 Work
             </TitleMedium>
             <p>

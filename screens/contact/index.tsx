@@ -5,7 +5,7 @@ import {TitleMedium} from "../components/headings";
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 55rem;            
+    padding-top: 5rem;    
     
     p {
         color: ${props => props.theme.primary};
@@ -13,45 +13,31 @@ const Container = styled.div`
 `;
 
 const ContactHeader = styled.div`
-    flex: 0 1 15%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
-    
-    h1 {
-        color: ${props => props.theme.primary};
-        color: white;
-        font-size: 2.1rem;
-        margin-bottom: 1rem;
-    }
+    margin-bottom: 2rem;   
     
     p {
         color: ${props => props.theme.primary};
         font-weight: 200;
-    }
-    
-    @media (max-height: 70rem) {
-        margin-top: 5rem;
-    }
+    }   
 `;
 
 const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    flex: 1;
-    min-height: 15rem;
-    justify-content: space-between;     
-    margin-bottom: 2rem;
+    min-height: 34rem;
+    overflow: scroll;
 `;
 
 const InputElement = styled.input`
     border: none;
     background: ${props => props.theme.accentOne};
-    height: 4.5rem;
+    min-height: 4.5rem;
     border-radius: 0.2rem;
     padding-left: 1rem;
     font-family: 'Montserrat',sans-serif;
+    margin-bottom: 2rem;
     
     ::placeholder {
         color: ${props => props.theme.secondary};
@@ -61,8 +47,7 @@ const InputElement = styled.input`
 `;
 
 const TextArea = styled.textarea`
-    flex: 0 1 calc(100% - 65%);
-    min-height: 4rem;
+    min-height: 13rem;
     border: none;
     background: ${props => props.theme.accentOne};
     height: 4.5rem;
@@ -76,14 +61,11 @@ const TextArea = styled.textarea`
         color: ${props => props.theme.secondary};
         font-size: 1.4rem;
         opacity: 0.8;        
-    }     
-    
-    @media (min-height: 800px) {
-        flex: 0 1 calc(100% - 55%);
-    }  
+    }         
 `;
 
 const Button = styled.button`
+    margin-top: 3rem;
     width: 8rem;
     align-self: flex-end;
     height: 3.5rem;
@@ -99,7 +81,7 @@ export const Contact = () => {
     return (
         <Container>
             <ContactHeader>
-                <TitleMedium marginTop={30}>
+                <TitleMedium>
                     Mail me
                 </TitleMedium>
                 <p>
