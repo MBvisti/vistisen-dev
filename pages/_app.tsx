@@ -55,6 +55,7 @@ export const GlobalStyle = createGlobalStyle`
 //     accentTwo: "#252626",
 // }
 
+// should probably have accentDark and accentLight
 const lightTheme = {
     bg: "#F2F2F2",
     primary: "#0A0C0D",
