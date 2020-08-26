@@ -8,10 +8,9 @@ const IntroductionContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    position: relative;
     
     img {
-        visibility: hidden;
+        display: none;
     }
     
     button:hover {
@@ -29,8 +28,10 @@ const IntroductionContainer = styled.div`
     
     @media (min-width: 1024px) {
         margin: 0 auto;
+        position: relative;
         
         img {
+            display: inline-block;
             visibility: visible;
             position: fixed;
             bottom: 0;

@@ -108,6 +108,10 @@ const NavModal = styled.div`
         flex-direction: column;
         justify-content: space-between;
         height: 13rem;
+        
+        a {
+            color: ${props => props.theme.accentOne};
+        }
     }
         
     @media (min-width: 640px) {
