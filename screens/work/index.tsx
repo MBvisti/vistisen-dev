@@ -20,7 +20,7 @@ const Container = styled.div`
     }
     
     @media (min-width: 640px) {
-        margin: 0 20%;   
+        margin: auto 20%;   
     }
     
     @media (min-width: 1024px) {
