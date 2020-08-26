@@ -50,15 +50,26 @@ const Nav = styled.nav`
 
 const LargeScreenNav = styled.div`
   display: none;
-  width: 8rem;
-  justify-content: space-between;
+  width: 14rem;
+  justify-content: space-between;  
   
   @media (min-width: 640px) {
     display: flex;
   }  
 `;
 
-const AnchorElement = styled.a`
+const AnchorElementSmall = styled.a`
+    color: ${props => props.theme.secondary};
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1.2rem;
+    
+    :hover {
+      color: ${props => props.theme.primary};    
+    }
+`;
+
+const AnchorElementBig = styled.a`
     color: ${props => props.theme.secondary};
     font-weight: 500;
     cursor: pointer;
@@ -129,11 +140,14 @@ const Header = () => {
                     <ThreeBars onClick={() => setState(!state)}/>
                 }
                 <LargeScreenNav>
-                    <Link href="/about">
-                        <AnchorElement>About</AnchorElement>
+                    <Link href="/">
+                        <AnchorElementSmall>Home</AnchorElementSmall>
                     </Link>
-                    <Link href="/blog">
-                        <AnchorElement>Blog</AnchorElement>
+                    <Link href="/work">
+                        <AnchorElementSmall>Work</AnchorElementSmall>
+                    </Link>
+                    <Link href="/contact">
+                        <AnchorElementSmall>Contact</AnchorElementSmall>
                     </Link>
                 </LargeScreenNav>
             </Nav>
@@ -146,13 +160,13 @@ const Header = () => {
                         </TitleMedium>
                     <div>
                         <Link href="/">
-                            <AnchorElement onClick={() => setState(false)}>Home</AnchorElement>
+                            <AnchorElementBig onClick={() => setState(false)}>Home</AnchorElementBig>
                         </Link>
                         <Link href="/work">
-                            <AnchorElement onClick={() => setState(false)}>Work</AnchorElement>
+                            <AnchorElementBig onClick={() => setState(false)}>Work</AnchorElementBig>
                         </Link>
                         <Link href="/contact">
-                            <AnchorElement onClick={() => setState(false)}>Contact</AnchorElement>
+                            <AnchorElementBig onClick={() => setState(false)}>Contact</AnchorElementBig>
                         </Link>
                         {/*<Link href="/about">*/}
                         {/*    <AnchorElement onClick={() => setState(false)}>About</AnchorElement>*/}
