@@ -47,17 +47,27 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const darkTheme = {
-    bg: "#0A0C0D",
-    primary: "#F2F2F2",
-    secondary: "#8C8C8C",
+// const darkTheme = {
+//     bg: "#0A0C0D",
+//     primary: "#F2F2F2",
+//     secondary: "#8C8C8C",
+//     accentOne: "#585959",
+//     accentTwo: "#252626",
+// }
+
+const lightTheme = {
+    bg: "#F2F2F2",
+    primary: "#0A0C0D",
+    secondary: "#252626",
     accentOne: "#585959",
-    accentTwo: "#252626",
+    accentTwo: "#F2F2F2",
 }
 
 function App({ Component}: AppProps) {
+    let theme = lightTheme;
+
     return (
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Layout>
                 <Component />
