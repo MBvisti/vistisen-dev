@@ -16,9 +16,10 @@ const Container = styled.div`
     
     grid-template-columns:  1fr;
     grid-template-rows: 3rem 1fr 3rem;
-          
+        
+    // TODO: keeping these as reference   
     @media (min-width: 640px) {
-
+        
     }
     
     @media (min-width: 768px) {

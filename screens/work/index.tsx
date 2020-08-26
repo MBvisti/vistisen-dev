@@ -6,7 +6,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding-top: 5rem;    
+    padding-top: 5rem;
+    
     
     h2 {
         margin-bottom: 0.7rem;
@@ -17,6 +18,10 @@ const Container = styled.div`
         font-size: 1.2rem;
         font-weight: 300;
     }
+    
+    @media (min-width: 640px) {
+        margin: 0 20%;   
+    }   
 `;
 
 export const ExperienceContainer = styled.div`

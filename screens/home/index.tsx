@@ -12,8 +12,15 @@ const IntroductionContainer = styled.div`
     button:hover {
         background: ${props => props.theme.primary};
         border: 1px solid ${props => props.theme.accentTwo};
-        color: ${props => props.theme.bg};
+        
+        a {
+            color: ${props => props.theme.accentTwo};
+        }
     }
+    
+    @media (min-width: 640px) {
+        margin: 0 auto;   
+    }   
 `;
 
 const Introduction = styled.div`
@@ -66,7 +73,7 @@ const Button = styled.button`
     
     a {
         color: ${props => props.theme.primary};
-    }
+    }   
 `;
 
 export const Home = () => {

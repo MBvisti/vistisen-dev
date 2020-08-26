@@ -10,6 +10,10 @@ const Container = styled.div`
     p {
         color: ${props => props.theme.primary};
     }
+    
+    @media (min-width: 640px) {
+        margin: 0 20%;   
+    }   
 `;
 
 const ContactHeader = styled.div`
@@ -28,6 +32,10 @@ const FormContainer = styled.form`
     flex-direction: column;
     min-height: 34rem;
     overflow: scroll;
+    
+    @media (min-width: 640px) {
+        min-height: 33rem;   
+    } 
 `;
 
 const InputElement = styled.input`
@@ -76,6 +84,12 @@ const Button = styled.button`
     font-family: 'Roboto', sans-serif;
     cursor: pointer;     
     color: ${props => props.theme.primary};
+    
+    :hover {
+        background: ${props => props.theme.primary};
+        border: 1px solid ${props => props.theme.accentTwo};        
+        color: ${props => props.theme.accentTwo};
+    }
 `;
 
 export const Contact = () => {
