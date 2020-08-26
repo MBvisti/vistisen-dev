@@ -8,6 +8,11 @@ const IntroductionContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    
+    img {
+        visibility: hidden;
+    }
     
     button:hover {
         background: ${props => props.theme.primary};
@@ -20,7 +25,20 @@ const IntroductionContainer = styled.div`
     
     @media (min-width: 640px) {
         margin: 0 auto;   
-    }   
+    }
+    
+    @media (min-width: 1024px) {
+        margin: 0 auto;
+        
+        img {
+            visibility: visible;
+            position: fixed;
+            bottom: 0;
+            left: -10rem;
+            
+            width: 40rem;              
+        }
+    }
 `;
 
 const Introduction = styled.div`
@@ -33,12 +51,20 @@ const HeaderOne = styled.h1`
     font-weight: 500;        
     color: ${props => props.theme.primary};
     font-size: 4rem;
+    
+    @media (min-width: 1024px) {
+        font-size: 7rem;
+    }
 `;
 
 const HeaderTwo = styled.h2`
     font-weight: 200;
     color: ${props => props.theme.primary};
     font-size: 3rem;
+    
+    @media (min-width: 1024px) {
+        font-size: 6rem;
+    }
 `;
 
 
@@ -59,6 +85,17 @@ const StackIcons = styled.div`
         fill: ${props => props.theme.primary};
     }  
     
+    @media (min-width: 1024px) {
+        width: 100%;
+        justify-content: space-around;
+        
+        svg {
+            height: 1.9rem;
+            width: 1.9rem;
+            cursor: pointer;
+            color: ${props => props.theme.secondary};
+        }
+    }
 `;
 
 const Button = styled.button`
@@ -73,7 +110,12 @@ const Button = styled.button`
     
     a {
         color: ${props => props.theme.primary};
-    }   
+    }
+    
+    @media (min-width: 1024px) {
+        width: 11rem;
+        height: 4.5rem;
+    }
 `;
 
 export const Home = () => {
@@ -94,6 +136,7 @@ export const Home = () => {
                 <Button>
                     <Link href="/contact">Say hello</Link>
                 </Button>
+                <img src="https://res.cloudinary.com/diwu3yx6a/image/upload/v1598441374/mig_selv-removebg-preview.png" alt="maaaaaaaaaarden" />
             </IntroductionContainer>
     )
 }

@@ -21,7 +21,14 @@ const Container = styled.div`
     
     @media (min-width: 640px) {
         margin: 0 20%;   
-    }   
+    }
+    
+    @media (min-width: 1024px) {
+        margin: 0 15%;   
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 10rem; 
+    } 
 `;
 
 export const ExperienceContainer = styled.div`
@@ -29,9 +36,8 @@ export const ExperienceContainer = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-       
-    
-    overflow-y: scroll;
+        
+    overflow-y: scroll;    
 `;
 
 export const Experience = styled.div`
@@ -80,16 +86,38 @@ export const Description = styled.div`
     max-width: 20rem;
 `;
 
+const TitleContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    
+    @media (min-width: 1024px) {
+        flex: 0 1 35%;
+        margin-right: 5rem;
+        
+        h2 {
+          font-size: 2.4rem;
+        }
+        
+        p {
+          font-size: 1.563rem;
+          line-height: 1.3;
+        }
+    } 
+    
+`;
+
 
 export const Work = () => {
     return (
         <Container>
-            <TitleMedium>
-                Work
-            </TitleMedium>
-            <p>
-                Below is a list of my work experiences. This includes everything from previous jobs, freelance work and side projects.
-            </p>
+            <TitleContainer>
+                <TitleMedium>
+                    Work
+                </TitleMedium>
+                <p>
+                    Below is a list of my work experiences. This includes everything from previous jobs, freelance work and side projects.
+                </p>
+            </TitleContainer>
             <ExperienceContainer>
                 <Experience>
                     <ImageContainer>
