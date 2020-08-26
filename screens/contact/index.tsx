@@ -46,10 +46,10 @@ const InputElement = styled.input`
     padding-left: 1rem;
     font-family: 'Montserrat',sans-serif;
     margin-bottom: 2rem;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.accentTwo};
     
     ::placeholder {
-        color: ${props => props.theme.secondary};
+        color: ${props => props.theme.accentTwo};
         font-size: 1.4rem;
         opacity: 0.8;
     }       
@@ -64,10 +64,11 @@ const TextArea = styled.textarea`
     padding-left: 1rem;
     padding-top: 1rem;
     font-family: 'Montserrat',sans-serif;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.accentTwo};
+    outline: none !important;
     
     ::placeholder {
-        color: ${props => props.theme.secondary};
+        color: ${props => props.theme.accentTwo};
         font-size: 1.4rem;
         opacity: 0.8;        
     }         
