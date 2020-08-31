@@ -123,7 +123,7 @@ const NavModal = styled.div`
 const Header = () => {
     const [state, setState] = useState(false)
     const {pathname} = useRouter()
-    console.log(state);
+
     return (
         <Container>
             <Logo>
