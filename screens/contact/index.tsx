@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {TitleMedium} from "../components/headings";
 
@@ -17,6 +17,7 @@ const Container = styled.div`
     
     @media (min-width: 1024px) {
         margin: 0 20%;
+        justify-content: center;
     }
 `;
 
@@ -98,6 +99,9 @@ const Button = styled.button`
 `;
 
 export const Contact = () => {
+    const [state, setState] = useState({
+        isLoading: false
+    })
     return (
         <Container>
             <ContactHeader>
@@ -108,13 +112,32 @@ export const Contact = () => {
                     Do you want to work with me, or do you have any questions? Fill out the form and I will get back to you as soon as possble.
                 </p>
             </ContactHeader>
-            <FormContainer>
-                <InputElement type="text" placeholder="Name" />
-                <InputElement type="email" placeholder="Mail" />
-                <InputElement type="text" placeholder="Subject" />
-                <TextArea placeholder="Message" />
-                <Button>Send</Button>
-            </FormContainer>
+            {
+                state.isLoading ?
+                <div>loading...</div>
+                    :
+                <FormContainer onSubmit={(e) => {
+                    e.preventDefault()
+
+                    setState({
+                        ...state,
+                        isLoading: !state.isLoading,
+                    })
+
+                    setTimeout(() => {
+                        setState({
+                            ...state,
+                            isLoading: false
+                        })
+                    }, 2000)
+                }}>
+                    <InputElement required type="text" placeholder="Name" />
+                    <InputElement required type="email" placeholder="Mail" />
+                    <InputElement required type="text" placeholder="Subject" />
+                    <TextArea placeholder="Message" />
+                    <Button>Send</Button>
+                </FormContainer>
+            }
         </Container>
     )
 }
