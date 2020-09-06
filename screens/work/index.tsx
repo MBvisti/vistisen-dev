@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components'
-import {TitleMedium, TitleSmall} from "../components/headings";
+import {TitleMedium} from "../components/headings";
+import {ArrowIosForwardOutline} from "@styled-icons/evaicons-outline/ArrowIosForwardOutline/ArrowIosForwardOutline";
+import Link from "next/link";
 
 const Container = styled.div`
     display: flex;
@@ -32,19 +34,43 @@ const Container = styled.div`
 `;
 
 export const ExperienceContainer = styled.div`
-    margin-top: 4rem;
     flex: 1;
     display: flex;
     flex-direction: column;
-        
+    
     overflow-y: scroll;    
 `;
 
 export const Experience = styled.div`
+    position: relative;
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    width: 90%;
     margin-bottom: 2rem;
     cursor: pointer;
+    background: ${props => props.theme.secondary};
+    border-radius: 0.4rem;
+    padding: 1rem;
+    height: 10rem;
+    justify-content: flex-end;
+    
+    h2, p {
+        color: ${props => props.theme.accentTwo};
+    }
+    
+    p {
+        font-size: 1.35rem;
+        font-weight: 500;
+    } 
+    
+    svg {
+        position: absolute;
+        color: ${props => props.theme.accentTwo};
+        width: 3rem;
+        height: 3rem;
+        right: 1rem;
+        top: 3.5rem;
+    }
 `;
 
 export const ImageContainer = styled.div`
@@ -106,8 +132,10 @@ const TitleContainer = styled.div`
     
 `;
 
-
 export const Work = () => {
+    const [state, setState] = useState({
+        hoveredElement: 0,
+    });
     return (
         <Container>
             <TitleContainer>
@@ -115,64 +143,43 @@ export const Work = () => {
                     Work
                 </TitleMedium>
                 <p>
-                    Below is a list of my work experiences. This includes everything from previous jobs, freelance work and side projects.
+                    Here is a list of my previous work experience.
                 </p>
             </TitleContainer>
             <ExperienceContainer>
-                <Experience>
-                    <ImageContainer>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png" alt="google logo" />
-                    </ImageContainer>
-                    <ShortDescContainer>
-                        <TitleSmall marginTop={0}>
-                            Legal Monster ApS
-                        </TitleSmall>
-                        <p>
-                            1/09/2019 to 1/10/2020
-                        </p>
+                <Link href="/work/[slug]" as="/work/legal-monster">
+                    <Experience onMouseEnter={() => setState({...state, hoveredElement: 1})} onMouseLeave={() => setState({...state, hoveredElement: 0})}>
                         <p>
                             Full-Stack developer
                         </p>
+                        <TitleMedium>
+                            Legal Monster Aps
+                        </TitleMedium>
+                        {state.hoveredElement === 1 && <ArrowIosForwardOutline />}
+                    </Experience>
+                </Link>
+                <Link href="/work/[slug]" as="/work/hs-moeller">
+                    <Experience onMouseEnter={() => setState({...state, hoveredElement: 2})} onMouseLeave={() => setState({...state, hoveredElement: 0})}>
                         <p>
-                            Ruby on Rails - Typescript - React
+                            IT consultant
                         </p>
-                    </ShortDescContainer>
-                </Experience>
-                <Experience>
-                    <ImageContainer>
-                        <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/227_Netflix_logo-512.png" alt="netflix logo" />
-                    </ImageContainer>
-                    <ShortDescContainer>
-                        <TitleSmall marginTop={0}>
+                        <TitleMedium>
                             HS Moeller ApS
-                        </TitleSmall>
+                        </TitleMedium>
+                        {state.hoveredElement === 2 && <ArrowIosForwardOutline />}
+                    </Experience>
+                </Link>
+                <Link href="/work/[slug]" as="/work/easy-skat">
+                    <Experience onMouseEnter={() => setState({...state, hoveredElement: 3})} onMouseLeave={() => setState({...state, hoveredElement: 0})}>
                         <p>
-                            1/09/2019 to 1/10/2020
+                            Front-end developer
                         </p>
-                        <p>
-                            It consultant
-                        </p>
-                        <p>
-                            React - Styled components - Figma
-                        </p>
-                    </ShortDescContainer>
-                </Experience>
-                <Experience>
-                    <ShortDescContainer>
-                        <TitleSmall marginTop={0}>
+                        <TitleMedium>
                             Easy Skat ApS
-                        </TitleSmall>
-                        <p>
-                            1/09/2019 to 1/10/2020
-                        </p>
-                        <p>
-                            Full-Stack developer
-                        </p>
-                        <p>
-                            React - Styled components - Figma
-                        </p>
-                    </ShortDescContainer>
-                </Experience>
+                        </TitleMedium>
+                        {state.hoveredElement === 3 && <ArrowIosForwardOutline />}
+                    </Experience>
+                </Link>
             </ExperienceContainer>
         </Container>
     )
