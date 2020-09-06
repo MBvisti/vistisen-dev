@@ -117,12 +117,24 @@ const NavModal = styled.div`
     @media (min-width: 640px) {
       display: none;
     }
+`;
+
+const BreadcrumbNavigation = styled.div`
+    display: flex;
     
+    p {
+        margin-right: 0.4rem;
+        color: ${props => props.theme.secondary};
+        font-weight: 500;
+        font-family: 'Montserrat',sans-serif;
+        font-size: 1.2rem;
+    }
 `;
 
 const Header = () => {
-    const [state, setState] = useState(false)
-    const {pathname} = useRouter()
+    const [state, setState] = useState(false);
+    const {asPath, } = useRouter();
+    const pathArray = asPath.split("/").slice(1);
 
     return (
         <Container>
@@ -133,10 +145,17 @@ const Header = () => {
                     </Paragraph>
                 </Link>
             </Logo>
-            { pathname != "/" &&
-                <p>
-                    {pathname}
-                </p>
+            { asPath != "/" &&
+                <BreadcrumbNavigation>
+                    {
+                        pathArray.map(path => {
+
+                            return (
+                                <p>{path}/ </p>
+                            )
+                        })
+                    }
+                </BreadcrumbNavigation>
             }
             <Nav>
                 {
