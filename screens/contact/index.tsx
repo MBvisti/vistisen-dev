@@ -12,11 +12,16 @@ const Container = styled.div`
     }
     
     @media (min-width: 640px) {
-        margin: auto 20%;   
+        margin: auto 5rem;
     }
     
     @media (min-width: 1024px) {
-        margin: 0 20%;
+        margin: 0 25rem;
+        justify-content: center;
+    }
+    
+    @media (min-width: 1025px) {
+        margin: 0 35rem;
         justify-content: center;
     }
 `;
@@ -51,6 +56,7 @@ const InputElement = styled.input`
     padding-left: 1rem;
     font-family: 'Montserrat',sans-serif;
     margin-bottom: 2rem;
+    font-size: 1.4rem;
     color: ${props => props.theme.accentTwo};
     
     ::placeholder {
@@ -71,6 +77,7 @@ const TextArea = styled.textarea`
     font-family: 'Montserrat',sans-serif;
     color: ${props => props.theme.accentTwo};
     outline: none !important;
+    font-size: 1.4rem;
     
     ::placeholder {
         color: ${props => props.theme.accentTwo};
@@ -98,10 +105,30 @@ const Button = styled.button`
     }
 `;
 
+const LoadingContainer = styled.div`
+    min-height: 34rem;
+`;
+
 export const Contact = () => {
     const [state, setState] = useState({
-        isLoading: false
+        isLoading: false,
+        error: false,
+        name: "",
+        mail: "",
+        subject: "",
+        message: ""
     })
+
+    const handleFormInput = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const {value} = e.target;
+        const {inputCategory} = e.target.dataset;
+
+        setState({
+            ...state,
+            [(inputCategory as string)]: value
+        })
+    }
+
     return (
         <Container>
             <ContactHeader>
@@ -114,9 +141,9 @@ export const Contact = () => {
             </ContactHeader>
             {
                 state.isLoading ?
-                <div>loading...</div>
+                <LoadingContainer>loading...</LoadingContainer>
                     :
-                <FormContainer onSubmit={(e) => {
+                <FormContainer onSubmit={async (e) => {
                     e.preventDefault()
 
                     setState({
@@ -124,17 +151,43 @@ export const Contact = () => {
                         isLoading: !state.isLoading,
                     })
 
-                    setTimeout(() => {
+                    const data = {
+                        name: state.name,
+                        mail: state.mail,
+                        subject: state.subject,
+                        message: state.message,
+                    }
+
+                    const req = await fetch("https://vistisen-production.herokuapp.com/v1/api/contact", {
+                        method: "POST",
+                        body: JSON.stringify(data)
+                    })
+
+                    const { res_code } = await req.json();
+
+                    if (res_code !== 200) {
                         setState({
                             ...state,
-                            isLoading: false
+                            isLoading: false,
+                            error: true
                         })
-                    }, 2000)
+                    }
+
+                    if (res_code === 200) {
+                        setState({
+                            isLoading: false,
+                            error: false,
+                            subject: "",
+                            mail: "",
+                            name: "",
+                            message: "",
+                        })
+                    }
                 }}>
-                    <InputElement required type="text" placeholder="Name" />
-                    <InputElement required type="email" placeholder="Mail" />
-                    <InputElement required type="text" placeholder="Subject" />
-                    <TextArea placeholder="Message" />
+                    <InputElement data-input-category="name" onChange={(e) => handleFormInput(e)} value={state.name} required type="text" placeholder="Name" />
+                    <InputElement data-input-category="mail" onChange={(e) => handleFormInput(e)} value={state.mail} required type="email" placeholder="Mail" />
+                    <InputElement data-input-category="subject" onChange={(e) => handleFormInput(e)} value={state.subject} required type="text" placeholder="Subject" />
+                    <TextArea data-input-category="message" onChange={(e) => handleFormInput(e)} value={state.message} required placeholder="Message" />
                     <Button>Send</Button>
                 </FormContainer>
             }
