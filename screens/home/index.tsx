@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import {Docker, ReactLogo} from "@styled-icons/fa-brands";
 import {Javascript, Postgresql, Typescript} from "@styled-icons/simple-icons";
@@ -9,10 +9,36 @@ const IntroductionContainer = styled.div`
     justify-content: center;
     flex-direction: column;
     
+    img {
+        display: none;
+    }
+    
     button:hover {
         background: ${props => props.theme.primary};
         border: 1px solid ${props => props.theme.accentTwo};
-        color: ${props => props.theme.bg};
+        
+        a {
+            color: ${props => props.theme.accentTwo};
+        }
+    }
+    
+    @media (min-width: 640px) {
+        margin: 0 auto;   
+    }
+    
+    @media (min-width: 1024px) {
+        margin: 0 auto;
+        position: relative;
+        
+        img {
+            display: inline-block;
+            visibility: visible;
+            position: fixed;
+            bottom: 0;
+            left: -10rem;
+            
+            width: 40rem;              
+        }
     }
 `;
 
@@ -26,12 +52,20 @@ const HeaderOne = styled.h1`
     font-weight: 500;        
     color: ${props => props.theme.primary};
     font-size: 4rem;
+    
+    @media (min-width: 1024px) {
+        font-size: 7rem;
+    }
 `;
 
 const HeaderTwo = styled.h2`
     font-weight: 200;
     color: ${props => props.theme.primary};
     font-size: 3rem;
+    
+    @media (min-width: 1024px) {
+        font-size: 6rem;
+    }
 `;
 
 
@@ -52,6 +86,17 @@ const StackIcons = styled.div`
         fill: ${props => props.theme.primary};
     }  
     
+    @media (min-width: 1024px) {
+        width: 100%;
+        justify-content: space-around;
+        
+        svg {
+            height: 1.9rem;
+            width: 1.9rem;
+            cursor: pointer;
+            color: ${props => props.theme.secondary};
+        }
+    }
 `;
 
 const Button = styled.button`
@@ -67,11 +112,15 @@ const Button = styled.button`
     a {
         color: ${props => props.theme.primary};
     }
+    
+    @media (min-width: 1024px) {
+        width: 11rem;
+        height: 4.5rem;
+    }
 `;
 
-export default function Home() {
+export const Home = () => {
     return (
-        <Fragment>
             <IntroductionContainer>
                 <Introduction>
                     <HeaderTwo>Hi,</HeaderTwo>
@@ -88,7 +137,7 @@ export default function Home() {
                 <Button>
                     <Link href="/contact">Say hello</Link>
                 </Button>
+                <img src="https://res.cloudinary.com/diwu3yx6a/image/upload/v1598441374/mig_selv-removebg-preview.png" alt="maaaaaaaaaarden" />
             </IntroductionContainer>
-        </Fragment>
     )
 }

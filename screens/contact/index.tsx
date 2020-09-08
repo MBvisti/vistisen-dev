@@ -1,72 +1,73 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import {TitleMedium} from "../components/headings";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 55rem;
-            
-    h1 {
-        color: ${props => props.theme.primary};
-        color: white;
-    }
+    padding-top: 5rem;    
     
     p {
         color: ${props => props.theme.primary};
+    }
+    
+    @media (min-width: 640px) {
+        margin: auto 5rem;
+    }
+    
+    @media (min-width: 1024px) {
+        margin: 0 25rem;
+        justify-content: center;
+    }
+    
+    @media (min-width: 1025px) {
+        margin: 0 35rem;
+        justify-content: center;
     }
 `;
 
 const ContactHeader = styled.div`
-    flex: 0 1 15%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
-    
-    h1 {
-        color: ${props => props.theme.primary};
-        color: white;
-        font-size: 2.1rem;
-        margin-bottom: 1rem;
-    }
+    margin-bottom: 2rem;   
     
     p {
         color: ${props => props.theme.primary};
         font-weight: 200;
-    }
-    
-    @media (max-height: 70rem) {
-        margin-top: 5rem;
-    }
+    }   
 `;
 
 const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    flex: 1;
-    min-height: 15rem;
-    justify-content: space-between;     
-    margin-bottom: 2rem;
+    min-height: 34rem;
+    overflow: scroll;
+    
+    @media (min-width: 640px) {
+        min-height: 33rem;   
+    } 
 `;
 
 const InputElement = styled.input`
     border: none;
     background: ${props => props.theme.accentOne};
-    height: 4.5rem;
+    min-height: 4.5rem;
     border-radius: 0.2rem;
     padding-left: 1rem;
     font-family: 'Montserrat',sans-serif;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    color: ${props => props.theme.accentTwo};
     
     ::placeholder {
-        color: ${props => props.theme.secondary};
+        color: ${props => props.theme.accentTwo};
         font-size: 1.4rem;
         opacity: 0.8;
     }       
 `;
 
 const TextArea = styled.textarea`
-    flex: 0 1 calc(100% - 65%);
-    min-height: 4rem;
+    min-height: 13rem;
     border: none;
     background: ${props => props.theme.accentOne};
     height: 4.5rem;
@@ -74,20 +75,19 @@ const TextArea = styled.textarea`
     padding-left: 1rem;
     padding-top: 1rem;
     font-family: 'Montserrat',sans-serif;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.accentTwo};
+    outline: none !important;
+    font-size: 1.4rem;
     
     ::placeholder {
-        color: ${props => props.theme.secondary};
+        color: ${props => props.theme.accentTwo};
         font-size: 1.4rem;
         opacity: 0.8;        
-    }     
-    
-    @media (min-height: 800px) {
-        flex: 0 1 calc(100% - 55%);
-    }  
+    }         
 `;
 
 const Button = styled.button`
+    margin-top: 3rem;
     width: 8rem;
     align-self: flex-end;
     height: 3.5rem;
@@ -97,26 +97,100 @@ const Button = styled.button`
     font-family: 'Roboto', sans-serif;
     cursor: pointer;     
     color: ${props => props.theme.primary};
+    
+    :hover {
+        background: ${props => props.theme.primary};
+        border: 1px solid ${props => props.theme.accentTwo};        
+        color: ${props => props.theme.accentTwo};
+    }
+`;
+
+const LoadingContainer = styled.div`
+    min-height: 34rem;
 `;
 
 export const Contact = () => {
+    const [state, setState] = useState({
+        isLoading: false,
+        error: false,
+        name: "",
+        mail: "",
+        subject: "",
+        message: ""
+    })
+
+    const handleFormInput = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const {value} = e.target;
+        const {inputCategory} = e.target.dataset;
+
+        setState({
+            ...state,
+            [(inputCategory as string)]: value
+        })
+    }
+
     return (
         <Container>
             <ContactHeader>
-                <h1>
+                <TitleMedium>
                     Mail me
-                </h1>
+                </TitleMedium>
                 <p>
                     Do you want to work with me, or do you have any questions? Fill out the form and I will get back to you as soon as possble.
                 </p>
             </ContactHeader>
-            <FormContainer>
-                <InputElement type="text" placeholder="Name" />
-                <InputElement type="email" placeholder="Mail" />
-                <InputElement type="text" placeholder="Subject" />
-                <TextArea placeholder="Message" />
-                <Button>Send</Button>
-            </FormContainer>
+            {
+                state.isLoading ?
+                <LoadingContainer>loading...</LoadingContainer>
+                    :
+                <FormContainer onSubmit={async (e) => {
+                    e.preventDefault()
+
+                    setState({
+                        ...state,
+                        isLoading: !state.isLoading,
+                    })
+
+                    const data = {
+                        name: state.name,
+                        mail: state.mail,
+                        subject: state.subject,
+                        message: state.message,
+                    }
+
+                    const req = await fetch("https://vistisen-production.herokuapp.com/v1/api/contact", {
+                        method: "POST",
+                        body: JSON.stringify(data)
+                    })
+
+                    const { res_code } = await req.json();
+
+                    if (res_code !== 200) {
+                        setState({
+                            ...state,
+                            isLoading: false,
+                            error: true
+                        })
+                    }
+
+                    if (res_code === 200) {
+                        setState({
+                            isLoading: false,
+                            error: false,
+                            subject: "",
+                            mail: "",
+                            name: "",
+                            message: "",
+                        })
+                    }
+                }}>
+                    <InputElement data-input-category="name" onChange={(e) => handleFormInput(e)} value={state.name} required type="text" placeholder="Name" />
+                    <InputElement data-input-category="mail" onChange={(e) => handleFormInput(e)} value={state.mail} required type="email" placeholder="Mail" />
+                    <InputElement data-input-category="subject" onChange={(e) => handleFormInput(e)} value={state.subject} required type="text" placeholder="Subject" />
+                    <TextArea data-input-category="message" onChange={(e) => handleFormInput(e)} value={state.message} required placeholder="Message" />
+                    <Button>Send</Button>
+                </FormContainer>
+            }
         </Container>
     )
 }
