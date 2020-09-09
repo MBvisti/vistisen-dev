@@ -109,7 +109,7 @@ const NavModal = styled.div`
         height: 13rem;
 
         a {
-            color: ${(props) => props.theme.accentOne};
+            color: ${(props) => props.theme.accentTwo};
         }
     }
 
@@ -118,22 +118,8 @@ const NavModal = styled.div`
     }
 `;
 
-const BreadcrumbNavigation = styled.div`
-    display: flex;
-
-    p {
-        margin-right: 0.4rem;
-        color: ${(props) => props.theme.secondary};
-        font-weight: 500;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.2rem;
-    }
-`;
-
 const Header = () => {
     const [state, setState] = useState(false);
-    const { asPath } = useRouter();
-    const pathArray = asPath.split('/').slice(1);
 
     return (
         <Container>
