@@ -25,7 +25,7 @@ const Container = styled.div`
     }
 
     @media (min-width: 1025px) {
-        margin: 0 25rem;
+        margin: 0 36rem;
     }
 `;
 
@@ -48,18 +48,13 @@ const TextContainer = styled.div`
 
         justify-content: center;
     }
-
-    @media (min-width: 1025px) {
-        flex-direction: row;
-
-        justify-content: center;
-    }
 `;
 
 const TextSection = styled.div`
     width: 100%;
     line-height: 1.4;
     margin-bottom: 1rem;
+    text-align: left;
 
     p {
         font-weight: 300;
