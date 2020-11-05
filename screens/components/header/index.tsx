@@ -140,9 +140,9 @@ const Header = () => {
                     <Link href="/contact">
                         <AnchorElementSmall>Contact</AnchorElementSmall>
                     </Link>
-                    <Link href="/about">
+                    {/* <Link href="/about">
                         <AnchorElementSmall>About</AnchorElementSmall>
-                    </Link>
+                    </Link> */}
                 </LargeScreenNav>
             </Nav>
             {state && (
@@ -165,11 +165,11 @@ const Header = () => {
                                 Contact
                             </AnchorElementBig>
                         </Link>
-                        <Link href="/about">
+                        {/* <Link href="/about">
                             <AnchorElementBig onClick={() => setState(false)}>
                                 About
                             </AnchorElementBig>
-                        </Link>
+                        </Link> */}
                     </div>
                     {/*<Link href="/blog">*/}
                     {/*    <AnchorElement>Blog</AnchorElement>*/}
