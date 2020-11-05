@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Meta from '../components/meta/';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
@@ -35,7 +34,6 @@ export const Layout = (props: { children: React.ReactNode }) => {
     return (
         <Container>
             <Header />
-            {/* <Meta /> */}
             {props.children}
             <Footer />
         </Container>
