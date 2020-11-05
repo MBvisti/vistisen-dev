@@ -72,6 +72,10 @@ export const Experience = styled.div`
     right: 1rem;
     top: 3.5rem;
   }
+
+  @media (min-width: 1024px) {
+    width: 70%;
+  }
 `;
 
 export const ImageContainer = styled.div`
