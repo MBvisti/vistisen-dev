@@ -1,6 +1,5 @@
 import Document, { DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import Meta from '../screens/components/meta/';
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
@@ -19,8 +18,6 @@ export default class MyDocument extends Document {
                 ...initialProps,
                 styles: (
                     <>
-                        <Meta />
-
                         {initialProps.styles}
                         {sheet.getStyleElement()}
                     </>

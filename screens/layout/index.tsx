@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Meta from '../components/meta';
 
 const Container = styled.div`
     display: grid;
@@ -34,7 +33,6 @@ const Container = styled.div`
 export const Layout = (props: { children: React.ReactNode }) => {
     return (
         <Container>
-            <Meta />
             <Header />
             {props.children}
             <Footer />
