@@ -109,6 +109,7 @@ const ButtonContainer = styled.div`
 `;
 
 export const Home = () => {
+
     return (
         <IntroductionContainer>
             <Introduction>
