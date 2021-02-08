@@ -1,16 +1,24 @@
 import {useRouter} from "next/router";
 import {getAllPosts, getPostBySlug} from "../../api/fetchAllPosts";
 import markdownToHtml from "../../api/markdownToHtml";
-import markdownStyles from './markdown-styles.module.css'
 import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
   // overflow-y: scroll;
   padding-top: 5rem;
-
+  margin: 0 25%;
+  
+  p {
+    margin: 1rem 0 1rem 0;
+  }
+  
+  p > img {
+    padding: 0 3rem 0 3rem;
+  }
+  
   // h2 {
   //   margin-bottom: 0.7rem;
   // }
@@ -67,7 +75,6 @@ function Post({post}: Props) {
         <Container>
             <Title>{post.title}</Title>
             <div
-                className={markdownStyles['markdown']}
                 dangerouslySetInnerHTML={{ __html: post.content }}
             />
         </Container>
