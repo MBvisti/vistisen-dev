@@ -65,7 +65,7 @@ const lightTheme = {
     accentTwo: '#F2F2F2',
 };
 
-function App({ Component }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
     let theme = lightTheme;
 
     return (
@@ -73,7 +73,7 @@ function App({ Component }: AppProps) {
             <GlobalStyle />
             <Meta />
             <Layout>
-                <Component />
+                <Component {...pageProps} />
             </Layout>
         </ThemeProvider>
     );

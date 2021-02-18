@@ -15,7 +15,7 @@ const Socials = styled.div`
     align-items: center;
     justify-content: flex-end;
     color: ${({ theme }) => theme.primary};
-    max-height: 100%;
+    height: 5rem;
     
     svg {
         cursor: pointer;

@@ -4,17 +4,15 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 const Container = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
     max-width: 100vw;
-    min-width: 100vw;
-    max-height: 100vh;
     min-height: 100vh;
+    padding: 0 2.5rem 0 2.5rem;
     background-color: ${(props) => props.theme.bg};
-    padding: 2.5rem;
     overflow: scroll;
 
-    grid-template-columns: 1fr;
-    grid-template-rows: 3rem 1fr 3rem;
+    grid-template-rows: 5rem 1fr 3rem;
 
     // TODO: keeping these as reference
     @media (min-width: 640px) {
@@ -30,11 +28,12 @@ const Container = styled.div`
     }
 `;
 
+
 export const Layout = (props: { children: React.ReactNode }) => {
     return (
         <Container>
             <Header />
-            {props.children}
+                {props.children}
             <Footer />
         </Container>
     );

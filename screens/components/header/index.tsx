@@ -14,6 +14,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     position: relative;
+    height: 5rem;
 
     p {
         color: ${(props) => props.theme.primary};
