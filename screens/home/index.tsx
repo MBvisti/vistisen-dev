@@ -5,6 +5,7 @@ import Link from 'next/link';
 const IntroductionContainer = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 
     img {

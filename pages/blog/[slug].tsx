@@ -6,10 +6,10 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  // overflow-y: scroll;
   padding-top: 5rem;
-  margin: 0 25%;
+  align-items: center;
+
+  overflow: hidden;
   
   p {
     margin: 1rem 0 1rem 0;
@@ -18,36 +18,64 @@ const Container = styled.div`
   p > img {
     padding: 0 3rem 0 3rem;
   }
-  
-  // h2 {
-  //   margin-bottom: 0.7rem;
-  // }
-  //
-  // p {
-  //   color: ${(props) => props.theme.primary};
-  //   font-size: 1.2rem;
-  //   font-weight: 300;
-  // }
-  //
-  // @media (min-width: 640px) {
-  //   margin: auto 20%;
-  // }
-  //
-  // @media (min-width: 1024px) {
-  //   margin: 0 15%;
-  //   flex-direction: row;
-  //   justify-content: space-between;
-  //   padding-top: 20rem;
-  // }
 `;
 
 const Title = styled.h1`
     color: ${(props) => props.theme.primary};
     font-size: 2.1rem;
     margin-bottom: 0.6rem;
-`
+    
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+`;
 
-const CoverImg = styled.image``
+const ArticleBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 100%;
+  line-height: 1.5;
+
+  blockquote {
+    font-style: italic;    
+  }
+
+  h3 {
+      margin: 1.5rem 0 1.5rem 0;
+  }
+
+  p {
+      margin: 0.7rem 0 0.7rem 0;
+  }
+
+  p > a {
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+  }
+
+  code {
+      background: lightgray;
+      padding: 0.7rem 0 0.7rem 2rem;
+      min-width: 100%;
+      display: block;
+  }
+
+  p > code {
+      display: initial;
+      padding: 0.2rem 0.7rem 0.2rem 0.7rem;
+  }
+
+  p > img {
+      width: 100%;
+      padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 50%;
+  }
+`;
 
 type Props = {
     post: {
@@ -70,11 +98,10 @@ function Post({post}: Props) {
         return <p>error</p>
     }
 
-    console.log(post)
     return (
         <Container>
             <Title>{post.title}</Title>
-            <div
+            <ArticleBody
                 dangerouslySetInnerHTML={{ __html: post.content }}
             />
         </Container>

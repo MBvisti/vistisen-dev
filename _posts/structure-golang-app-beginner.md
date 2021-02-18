@@ -58,9 +58,9 @@ This should hopefully give you an overview of the overall structure, a step-by-s
 
 Alright, enough talk, let’s go going. Create a new folder wherever you like to store your projects called `weight-tracker` and run the following command inside the folder:
 
-```
+<code>
 go mod init weight-tracker
-```
+</code>
 
 The application is going to follow a structure that looks something like this:
 
