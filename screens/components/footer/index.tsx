@@ -1,7 +1,7 @@
-import React from "react";
-import {LinkedinSquare} from "@styled-icons/boxicons-logos/LinkedinSquare";
-import {Github} from '@styled-icons/boxicons-logos/Github';
-import styled from "styled-components";
+import React from 'react';
+import { LinkedinSquare } from '@styled-icons/boxicons-logos/LinkedinSquare';
+import { Github } from '@styled-icons/boxicons-logos/Github';
+import styled from 'styled-components';
 
 const AnchorElement = styled.a`
     color: ${({ theme }) => theme.primary};
@@ -16,25 +16,25 @@ const Socials = styled.div`
     justify-content: flex-end;
     color: ${({ theme }) => theme.primary};
     max-height: 100%;
-    
+
     svg {
         cursor: pointer;
         height: 2rem;
         width: 2rem;
         color: ${({ theme }) => theme.primary};
-        margin: 0 0.6rem 0 0.6rem; 
+        margin: 0 0.6rem 0 0.6rem;
     }
 `;
 
 const Footer = () => (
     <Socials>
-        <AnchorElement href={"https://www.linkedin.com/in/mbvisti-dev/"}>
+        <AnchorElement href={'https://www.linkedin.com/in/mbvisti-dev/'}>
             <LinkedinSquare />
         </AnchorElement>
-        <AnchorElement href={"https://github.com/mbvisti"}>
+        <AnchorElement href={'https://github.com/mbvisti'}>
             <Github />
         </AnchorElement>
     </Socials>
-)
+);
 
 export default Footer;
