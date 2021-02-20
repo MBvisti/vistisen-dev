@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+// TODO: Rewrite this to use tailwind
 const Container = styled.div`
     display: flex;
     flex-direction: column;

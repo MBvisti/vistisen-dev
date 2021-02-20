@@ -4,33 +4,25 @@ import styled from 'styled-components';
 import { TitleBig, TitleMedium } from '../components/headings';
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    padding-top: 2rem;
+    // display: flex;
+    // flex-direction: column;
+    // overflow: hidden;
+    // padding-top: 2rem;
 
-    overflow-y: scroll;
+    // overflow-y: scroll;
 
-    @media (min-width: 640px) {
-        margin: auto 20%;
-    }
+    // @media (min-width: 640px) {
+    //     margin: auto 20%;
+    // }
 
-    @media (min-width: 1024px) {
-        margin: auto 30%;
-    }
+    // @media (min-width: 1024px) {
+    //     margin: auto 30%;
+    // }
 `;
 
 const HeaderInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-
     h2 {
         color: ${(props) => props.theme.secondary};
-    }
-
-    p {
-        font-size: 1.563rem;
-        font-weight: 400;
     }
 
     p:last-child {
@@ -39,47 +31,47 @@ const HeaderInfo = styled.div`
 `;
 
 const RoleInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
+    // display: flex;
+    // flex-direction: column;
+    // margin-top: 2rem;
 
-    p {
-        margin-bottom: 0.5rem;
-        font-weight: 400;
-        font-size: 1.543rem;
-    }
+    // p {
+    //     margin-bottom: 0.5rem;
+    //     font-weight: 400;
+    //     font-size: 1.543rem;
+    // }
 `;
 
 const Bio = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 3rem;
+    // display: flex;
+    // flex-direction: column;
+    // margin-top: 3rem;
 
-    p {
-        margin-bottom: 0.5rem;
-        font-weight: 400;
-        font-size: 1.543rem;
-    }
+    // p {
+    //     margin-bottom: 0.5rem;
+    //     font-weight: 400;
+    //     font-size: 1.543rem;
+    // }
 
-    p:first-child {
-        text-decoration: underline;
-    }
+    // p:first-child {
+    //     text-decoration: underline;
+    // }
 `;
 
 const Summary = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 4rem;
+    // display: flex;
+    // flex-direction: column;
+    // margin-top: 4rem;
 
-    p {
-        margin-bottom: 0.5rem;
-        font-weight: 400;
-        font-size: 1.543rem;
-    }
+    // p {
+    //     margin-bottom: 0.5rem;
+    //     font-weight: 400;
+    //     font-size: 1.543rem;
+    // }
 
-    p:first-child {
-        text-decoration: underline;
-    }
+    // p:first-child {
+    //     text-decoration: underline;
+    // }
 `;
 
 interface WorkExperience {
@@ -145,25 +137,25 @@ export const WorkDetails = () => {
     }
 
     return (
-        <Container>
-            <HeaderInfo>
-                <p>Company</p>
+        <Container className='flex flex-col overflow-y-auto mt-20'>
+            <HeaderInfo className='flex flex-col'>
+                <p className='text-2xl'>Company</p>
                 <TitleBig>{companyData.companyName}</TitleBig>
-                <p>{companyData.period}</p>
+                <p className='text-2xl'>{companyData.period}</p>
             </HeaderInfo>
-            <RoleInfo>
-                <p>Role</p>
+            <RoleInfo className='flex flex-col mb-4'>
+                <p className='text-2xl mb-2'>Role</p>
                 <TitleMedium>{companyData.role}</TitleMedium>
             </RoleInfo>
-            <Bio>
-                <p>Bio</p>
-                <p>{companyData.bio}</p>
+            <Bio className='flex flex-col mt-8'>
+                <p className='mb-1 text-2xl'>Bio</p>
+                <p className='mb-1 text-2xl'>{companyData.bio}</p>
             </Bio>
-            <Summary>
-                <p>Summary</p>
-                <p>The industry: {companyData.industry}.</p>
-                <p>The tech stack: {companyData.techStack}.</p>
-                <p>The role: {companyData.role}.</p>
+            <Summary className='flex flex-col mt-8'>
+                <p className='mb-1 text-2xl'>Summary</p>
+                <p className='mb-1 text-2xl'>The industry: {companyData.industry}.</p>
+                <p className='mb-1 text-2xl'>The tech stack: {companyData.techStack}.</p>
+                <p className='mb-1 text-2xl'>The role: {companyData.role}.</p>
             </Summary>
         </Container>
     );

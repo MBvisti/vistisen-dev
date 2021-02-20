@@ -3,14 +3,6 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const IntroductionContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    img {
-        display: none;
-    }
-
     button:hover {
         background: ${(props) => props.theme.primary};
         border: 1px solid ${(props) => props.theme.secondary};
@@ -33,39 +25,14 @@ const IntroductionContainer = styled.div`
     }
 `;
 
-const Introduction = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    padding-right: 5rem;
+const Introduction = styled.div``;
 
-    @media (min-width: 414px) {
-        padding-right: 8rem;
-    }
-
-    @media (min-width: 640px) {
-        padding-right: 0;
-    }
-`;
-
-const HeaderOne = styled.h1`
-    font-weight: 700;
+const HeaderOne = styled.h1` 
     color: ${(props) => props.theme.primary};
-    font-size: 3rem;
-
-    @media (min-width: 1024px) {
-        font-size: 3.7rem;
-    }
 `;
 
 const HeaderTwo = styled.h2`
-    font-weight: 200;
     color: ${(props) => props.theme.primary};
-    font-size: 3rem;
-
-    @media (min-width: 1024px) {
-        font-size: 3.1rem;
-    }
 `;
 
 interface ButtonProps {
@@ -73,58 +40,33 @@ interface ButtonProps {
 }
 
 const Button = styled.button<ButtonProps>`
-    margin-top: 1.5rem;
-    width: 9rem;
-    height: 4.5rem;
     background: ${(props) =>
         props.inverse ? props.theme.bg : props.theme.secondary};
     border: 1px solid ${(props) => props.theme.secondary};
-    border-radius: 0.4rem;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-
     color: ${(props) =>
         props.inverse ? props.theme.secondary : props.theme.bg};
-    font-size: 1.6rem;
-    font-size: bold;
-
-    @media (min-width: 1024px) {
-        width: 11rem;
-        height: 4.5rem;
-    }
 `;
 
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 85%;
-
-    @media (min-width: 375px) {
-        width: 65%;
-    }
-
-    @media (min-width: 640px) {
-        width: 45%;
-    }
-`;
+const ButtonContainer = styled.div``;
 
 export const Home = () => {
     return (
-        <IntroductionContainer>
-            <Introduction>
-                <HeaderTwo>Hi, I'm Morten.</HeaderTwo>
-                <HeaderOne>A freelance full-stack developer</HeaderOne>
-                <HeaderTwo>building cloud-native applications.</HeaderTwo>
+        <IntroductionContainer className='flex flex-col justify-center'>
+            <Introduction className='flex flex-col mb-4'>
+                <HeaderTwo className='font-extralight text-5xl'>Hi, I'm Morten.</HeaderTwo>
+                <HeaderOne className='font-bold text-5xl my-2'>A full-stack engineer</HeaderOne>
+                <HeaderTwo className='font-extralight text-5xl'>building cloud-native applications.</HeaderTwo>
             </Introduction>
-            <ButtonContainer>
+            <ButtonContainer className='flex justify-between w-4/5 sm:w-3/6'>
                 <Link href="/contact">
-                    <Button>Say hello</Button>
+                    <Button className='mt-6 w-36 h-16 rounded text-2xl font-medium'>Say hello</Button>
                 </Link>
                 <Link href="/work">
-                    <Button inverse={true}>My Work</Button>
+                    <Button className='mt-6 w-36 h-16 rounded text-2xl font-normal' inverse={true}>My Work</Button>
                 </Link>
             </ButtonContainer>
             <img
+                className='hidden'        
                 src="https://res.cloudinary.com/diwu3yx6a/image/upload/v1598441374/mig_selv-removebg-preview.png"
                 alt="maaaaaaaaaarden"
             />
