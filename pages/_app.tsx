@@ -40,6 +40,7 @@ export const GlobalStyle = createGlobalStyle`
   p {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    color: #0A0C0D;
   }
 
   input:focus {

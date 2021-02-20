@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { TitleMedium } from '../components/headings';
 
+// TODO: Rewrite this to use tailwind
 const Container = styled.div`
     display: flex;
     flex-direction: column;
