@@ -44,7 +44,7 @@ export const Work = () => {
   });
 
   return (
-    <Container className='flex flex-col sm:m-auto'>
+    <Container className='flex flex-col flex-1 sm:m-auto sm:mt-28'>
       <TitleContainer className='flex flex-col justify-center mb-8'>
         <TitleMedium className='mb-2 font-bold'>Work</TitleMedium>
         <p className='text-xl'>Here is a list of my previous work experience.</p>

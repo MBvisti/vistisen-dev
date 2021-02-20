@@ -2,7 +2,7 @@
 title: 'An easy and practical approach to structuring Golang applications'
 excerpt: ''
 coverImage: '/assets/blog/hello-world/cover.jpg'
-date: '30-01-2021'
+posted: '30-01-2021'
 author:
   name: Morten Vistisen
   picture: '/assets/blog/authors/tim.jpeg'
@@ -96,7 +96,7 @@ The `main` package should be self-explanatory if you’ve ever done any golang p
 
 Open up `main.go` and add the following:
 
-<!-- <script src="[https://gist.github.com/MBvisti/07075587d231d562d03d0604a601b003.js](https://gist.github.com/MBvisti/07075587d231d562d03d0604a601b003.js)"></script> -->
+<script src="https://gist.github.com/MBvisti/07075587d231d562d03d0604a601b003.js"></script>
 
 You should have quite a few errors showing in your IDE now, we are fixing that in a moment. But first off, let me explain what is going on here. In our `func main()`we call a method named `run`, that returns an error (or nil, if there is no error). If `run` should return an error our programs exits and gives us an error message. Setting up our `main` function in this way allows us to test it and thereby following the element of a robust service structure, testability. This way of setting up the main function comes from Mat Ryer, who talks more about it in his [blog post](https://pace.dev/blog/2020/02/12/why-you-shouldnt-use-func-main-in-golang-by-mat-ryer.html).
 

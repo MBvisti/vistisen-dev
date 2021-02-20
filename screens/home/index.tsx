@@ -51,7 +51,7 @@ const ButtonContainer = styled.div``;
 
 export const Home = () => {
     return (
-        <IntroductionContainer className='flex flex-col justify-center'>
+        <IntroductionContainer className='flex flex-col justify-center flex-1'>
             <Introduction className='flex flex-col mb-4'>
                 <HeaderTwo className='font-extralight text-5xl'>Hi, I'm Morten.</HeaderTwo>
                 <HeaderOne className='font-bold text-5xl my-2'>A full-stack engineer</HeaderOne>

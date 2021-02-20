@@ -137,7 +137,7 @@ export const WorkDetails = () => {
     }
 
     return (
-        <Container className='flex flex-col overflow-y-auto mt-20'>
+        <Container className='flex flex-col overflow-y-auto mt-20 flex-1 sm:w-3/6 sm:mx-auto sm:mt-28'>
             <HeaderInfo className='flex flex-col'>
                 <p className='text-2xl'>Company</p>
                 <TitleBig>{companyData.companyName}</TitleBig>

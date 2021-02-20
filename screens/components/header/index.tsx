@@ -121,7 +121,7 @@ const Header = () => {
     const [state, setState] = useState(false);
 
     return (
-        <Container>
+        <Container className='h-20'>
             <Logo>
                 <Link href="/">
                     <Paragraph fontWeight={600}>vis-ti-sen</Paragraph>
@@ -136,6 +136,9 @@ const Header = () => {
                     </Link>
                     <Link href="/work">
                         <AnchorElementSmall>Work</AnchorElementSmall>
+                    </Link>
+                    <Link href="/blog">
+                        <AnchorElementSmall>Blog</AnchorElementSmall>
                     </Link>
                     <Link href="/contact">
                         <AnchorElementSmall>Contact</AnchorElementSmall>
@@ -160,6 +163,11 @@ const Header = () => {
                                 Work
                             </AnchorElementBig>
                         </Link>
+                        <Link href="/blog">
+                            <AnchorElementBig onClick={() => setState(false)}>
+                                Blog
+                            </AnchorElementBig>
+                        </Link>                        
                         <Link href="/contact">
                             <AnchorElementBig onClick={() => setState(false)}>
                                 Contact
@@ -171,9 +179,6 @@ const Header = () => {
                             </AnchorElementBig>
                         </Link>
                     </div>
-                    {/*<Link href="/blog">*/}
-                    {/*    <AnchorElement>Blog</AnchorElement>*/}
-                    {/*</Link>*/}
                 </NavModal>
             )}
         </Container>
