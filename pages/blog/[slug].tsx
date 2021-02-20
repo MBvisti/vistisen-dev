@@ -1,10 +1,50 @@
 import React from 'react';
+import fs from "fs";
+import {Article} from "../../screens/blog/article";
+import matter from "gray-matter";
+import path from "path";
 
-function Post({content}: any) {
-    console.log(content)
-    return (
-        <h1>Hello world</h1>
-    )
+function ArticlePage({payload}: any) {
+    console.log(payload);
+    return <Article articleData={payload} />;
 }
 
-export default Post;
+export async function getStaticPaths() {
+    const files = fs.readdirSync('_articles');
+
+    const paths = files.map((filename) => ({
+        params: {
+            slug: filename.replace('.md', ''),
+        },
+    }));
+
+    return {
+        paths,
+        fallback: false,
+    };
+}
+
+export async function getStaticProps({ params: { slug } }) {
+    const markdownWithMetadata = fs
+        .readFileSync(path.join('_articles', slug + '.md'))
+        .toString();
+
+    const { data, content } = matter(markdownWithMetadata);
+
+    const frontmatter = {
+        ...data, 
+    };
+
+    const payload = {
+        content,
+        meta: frontmatter
+    }
+
+    return {
+        props: {
+            payload
+        },
+    };
+}
+
+export default ArticlePage;
