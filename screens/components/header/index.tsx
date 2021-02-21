@@ -121,7 +121,7 @@ const Header = () => {
     const [state, setState] = useState(false);
 
     return (
-        <Container className='h-14'>
+        <Container className='h-10'>
             <Logo>
                 <Link href="/">
                     <Paragraph fontWeight={600}>vis-ti-sen</Paragraph>
