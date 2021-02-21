@@ -24,7 +24,13 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params: { slug } }) {
+interface ParamsInterface {
+    params: {
+        slug: string
+    }
+}
+
+export async function getStaticProps({ params: { slug } }: ParamsInterface) {
     const markdownWithMetadata = fs
         .readFileSync(path.join('_articles', slug + '.md'))
         .toString();
