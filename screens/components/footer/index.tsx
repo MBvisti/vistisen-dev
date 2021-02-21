@@ -27,7 +27,7 @@ const Socials = styled.div`
 `;
 
 const Footer = () => (
-    <Socials className='h-20'>
+    <Socials className='h-10'>
         <AnchorElement href={'https://www.linkedin.com/in/mbvisti-dev/'}>
             <LinkedinSquare />
         </AnchorElement>
