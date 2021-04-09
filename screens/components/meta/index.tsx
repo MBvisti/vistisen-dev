@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const Meta = () => (
+export const Meta = () => (
     <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta charSet="utf-8" />
@@ -22,5 +22,3 @@ const Meta = () => (
         <title>Vistisen</title>
     </Head>
 );
-
-export default Meta;

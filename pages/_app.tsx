@@ -4,7 +4,6 @@ import '../styles/globals.css'
 import { Layout } from '../screens/layout';
 import { createGlobalStyle } from 'styled-components';
 import { ThemeProvider } from 'styled-components';
-import Meta from '../screens/components/meta';
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -71,7 +70,6 @@ function App({ Component, pageProps }: AppProps) {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <Meta />
             <Layout>
                 <Component {...pageProps} />
             </Layout>
