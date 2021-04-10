@@ -4,10 +4,6 @@ import { ThreeBars } from '@styled-icons/octicons/ThreeBars';
 import { CloseCircle } from '@styled-icons/ionicons-outline/CloseCircle';
 import Link from 'next/link';
 
-interface StyleProps {
-    readonly fontWeight: number;
-}
-
 const ThreeBarIcon = styled(ThreeBars)`
     @media (min-width: 640px) {
         display: none;
