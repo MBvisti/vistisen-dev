@@ -1,4 +1,4 @@
-import {About} from "../screens/about";
+import {About} from "../components/about";
 
 export default function AboutPage() {
     return (

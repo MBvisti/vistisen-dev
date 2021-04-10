@@ -1,4 +1,4 @@
-import {WorkDetails} from "../../screens/work/details";
+import {WorkDetails} from "../../components/work/details";
 
 export default function WorkPage() {
     return (

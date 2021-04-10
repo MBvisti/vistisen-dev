@@ -1,5 +1,5 @@
 import React from 'react';
-import {Blog} from "../screens/blog";
+import {Blog} from "../components/blog";
 import fs from "fs";
 import matter from "gray-matter";
 

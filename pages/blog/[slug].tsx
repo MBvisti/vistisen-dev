@@ -1,6 +1,6 @@
 import React from 'react';
 import fs from "fs";
-import {Article} from "../../screens/blog/article";
+import {Article} from "../../components/blog/article";
 import matter from "gray-matter";
 import path from "path";
 

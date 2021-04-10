@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import '../styles/globals.css'
-import { Layout } from '../screens/layout';
+import { Layout } from '../components/layout';
 import { createGlobalStyle } from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 
