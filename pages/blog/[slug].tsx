@@ -4,8 +4,7 @@ import {Article} from "../../components/blog/article";
 import matter from "gray-matter";
 import path from "path";
 
-function ArticlePage({payload}: any) {
-    console.log(payload);
+function ArticlePage({payload}: any) {    
     return <Article articleData={payload} />;
 }
 

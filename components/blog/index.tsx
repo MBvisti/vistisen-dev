@@ -66,18 +66,18 @@ export interface Articles {
 
 export const Blog = ({ payload }: Articles) => {    
     return (
-        <Container className='flex-1 flex flex-col mt-8 sm:m-auto sm:mt-28'>
-            <TitleMedium className='font-bold mb-4'>Blog posts</TitleMedium>
-            <ArticleList>
+        <div className='flex-1 flex flex-col mt-8 sm:m-auto sm:mt-28'>
+            <h2 className='font-bold mb-4'>Blog posts</h2>
+            <div>
                 {payload.map((article: Post) => (
                     <Link href="/blog/[slug]" as={`/blog/${article.slug}`}>
-                        <Article className='cursor-pointer'>
-                            <Title className='font-medium'>{article.frontmatter.title}</Title>
-                            <Posted className='mt-2 text-xl'>Posted at: {article.frontmatter.posted}</Posted>
-                        </Article>
+                        <div className='cursor-pointer'>
+                            <p className='font-medium'>{article.frontmatter.title}</p>
+                            <p className='mt-2 text-xl'>Posted on: {article.frontmatter.posted}</p>
+                        </div>
                     </Link>
                 ))}
-            </ArticleList>
-        </Container>
+            </div>
+        </div>
     );
 };

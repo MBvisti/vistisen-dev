@@ -1,14 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import ReactMarkdown from 'react-markdown/with-html';
+import ReactMarkdown from 'react-markdown'
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import { hopscotch } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const Container = styled.article`
-    // display: flex;
-    // flex-direction: column;
-    // padding-top: 5rem;
-    // overflow-y: scroll;
-    // padding-right: 2rem;
-
     p {
         margin: 1rem 0 1rem 0;
         line-height: 1.5;
@@ -20,17 +16,38 @@ const Container = styled.article`
         object-fit: cover;
     }
 
-    h1, h2, h3 {
+    p > a {
+        text-decoration: underline;
         font-weight: bold;
     }
 
-    // @media (min-width: 640px) {
-    //     align-items: center;
-    // }
+    pre {
+        border-radius: 0.4rem;
+    }
 
-    // @media (min-width: 1024px) {
-    //     padding-top: 14rem;
-    // }
+    ul {
+        list-style: inside;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+
+        li {
+            font-family: "Roboto", sans-serif
+        }
+    }
+
+    blockquote {
+        padding-left: 2rem;
+        border-left: 0.3rem solid black;
+
+        p {
+            font-style: italic;
+            font-weight: lighter;
+        }
+    }
+
+    h1, h2, h3 {
+        font-weight: bold;
+    }
 `;
 
 interface Payload {
@@ -44,11 +61,20 @@ interface Payload {
     };
 }
 
+const renderers = (): {} => {
+    return {
+        code: ({ language, value }) => {
+            return <SyntaxHighlighter language={language} style={hopscotch} children={value} />
+        }
+    }
+}
+
 export const Article = ({ articleData }: Payload) => {
+    const render = renderers()
     return (
         <Container className='flex flex-col sm:w-3/6 justify-center sm:mx-auto overflow-x-hidden'>
             <h2 className='mb-12 mt-8 font-bold text-3xl'>{articleData.meta.title}</h2>
-            <ReactMarkdown escapeHtml={true} source={articleData.content} />
+            <ReactMarkdown renderers={render} source={articleData.content} />
         </Container>
     );
 };
