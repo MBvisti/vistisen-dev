@@ -4,11 +4,11 @@ import Link from 'next/link';
 // TODO: this should be really simply and concise. Who I am, my preferred technology, what I want to do and what I have done work and education.
 export const About = () => {
     return (
-        <div className='flex flex-col py-6 md:my-auto xl:mx-auto xl:w-1/4'>
-            <h2 className="pb-2 font-bold text-xl md:text-2xl">About me</h2>
-            <div className='flex flex-col md:flex-row xl:flex-col'>
-                <div className="leading-6 mb-4 md:mb-0 md:mr-6 xl:mr-0 xl:mb-4">
-                    <p>
+        <div className='py-40 flex flex-col flex-1 items-center md:mx-56 md:justify-center'>
+            <h2 className="mb-2 text-xl font-bold md:text-3xl">About me</h2>
+            <div className='flex flex-col lg:w-2/4 xl:w-1/3'>
+                <div className="leading-6 mb-4">
+                    <p className='text-lg text-justify md:text-xl'>
                         I'm a self-taught developer originally from Copenhagen -
                         Denmark. I currently living in Berlin, Germany where I
                         work as a contractor/freelance developer. My educational
@@ -17,8 +17,8 @@ export const About = () => {
                         passion for programming on the side.
                     </p>
                 </div>
-                <div className="leading-6 md:ml-6 xl:ml-0">
-                    <p>
+                <div className="leading-6">
+                    <p className='text-lg text-justify md:text-xl'>
                         I like to build cloud native applications and mainly use
                         JS/TS, React, Golang and Docker. I'm a big proponent of
                         using test driven development, whenever it makes sense.

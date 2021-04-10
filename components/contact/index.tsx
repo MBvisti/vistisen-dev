@@ -133,19 +133,20 @@ export const Contact = () => {
     };
 
     return (
-        <Container>
-            <ContactHeader>
-                <TitleMedium>Mail me</TitleMedium>
-                <p>
+        <div className='py-6 flex flex-col flex-1 md:mx-56 md:py-80 lg:items-center lg:justify-center'>
+            <div className='flex flex-col justify-center mb-4 lg:w-1/3'>
+                <h2 className='mb-2 text-xl font-bold md:text-3xl'>Mail me</h2>
+                <p className='text-lg md:text-xl'>
                     Do you want to work with me, or do you have any questions?
                     Fill out the form and I will get back to you as soon as
                     possble.
                 </p>
-            </ContactHeader>
+            </div>
             {state.isLoading ? (
                 <LoadingContainer>loading...</LoadingContainer>
             ) : (
-                <FormContainer
+                <form
+                    className='flex flex-col flex-1 lg:w-1/3'
                     onSubmit={async (e) => {
                         e.preventDefault();
 
@@ -191,7 +192,8 @@ export const Contact = () => {
                         }
                     }}
                 >
-                    <InputElement
+                    <input
+                        className='my-2 h-14 text-lg pl-4 shadow border border-gray-400 rounded'
                         data-input-category="name"
                         onChange={(e) => handleFormInput(e)}
                         value={state.name}
@@ -199,7 +201,8 @@ export const Contact = () => {
                         type="text"
                         placeholder="Name"
                     />
-                    <InputElement
+                    <input
+                        className='my-2 h-14 text-lg pl-4 shadow border border-gray-400 rounded'
                         data-input-category="mail"
                         onChange={(e) => handleFormInput(e)}
                         value={state.mail}
@@ -207,7 +210,8 @@ export const Contact = () => {
                         type="email"
                         placeholder="Mail"
                     />
-                    <InputElement
+                    <input
+                        className='my-2 h-14 text-lg pl-4 shadow border border-gray-400 rounded'
                         data-input-category="subject"
                         onChange={(e) => handleFormInput(e)}
                         value={state.subject}
@@ -215,18 +219,19 @@ export const Contact = () => {
                         type="text"
                         placeholder="Subject"
                     />
-                    <TextArea
+                    <textarea
+                        className='my-2 h-14 text-lg pt-4 pl-4 shadow border border-gray-400 rounded flex-1'
                         data-input-category="message"
                         onChange={(e) => handleFormInput(e)}
                         value={state.message}
                         required
                         placeholder="Message"
                     />
-                    <Button className="umami--click--send-mail-button">
+                    <button className="h-16 mt-4 border border-gray-400 shadow rounded-lg hover:bg-black hover:text-white hover:border-black">
                         Send
-                    </Button>
-                </FormContainer>
+                    </button>
+                </form>
             )}
-        </Container>
+        </div>
     );
 };

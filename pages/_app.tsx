@@ -47,14 +47,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-// const darkTheme = {
-//     bg: "#0A0C0D",
-//     primary: "#F2F2F2",
-//     secondary: "#8C8C8C",
-//     accentOne: "#585959",
-//     accentTwo: "#252626",
-// }
-
 // should probably have accentDark and accentLight
 const lightTheme = {
     bg: '#F2F2F2',
