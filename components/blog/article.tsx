@@ -61,9 +61,14 @@ interface Payload {
     };
 }
 
+interface Render {
+    language: string
+    value: any
+}
+
 const renderers = (): {} => {
     return {
-        code: ({ language, value }) => {
+        code: ({ language, value }: Render) => {
             return <SyntaxHighlighter language={language} style={hopscotch} children={value} />
         }
     }
